@@ -9,6 +9,11 @@
 =========================================================
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 */
+import "antd/dist/antd.css";
+import "./assets/styles/main.css";
+import "./assets/styles/responsive.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min';
 import { Switch, Route, Redirect } from "react-router-dom";
 import Home from "./pages/Home";
 import Tables from "./pages/Tables";
@@ -18,12 +23,12 @@ import Profile from "./pages/Profile";
 import SignUp from "./pages/SignUp";
 import SignIn from "./pages/SignIn";
 import Main from "./components/layout/Main";
-import "antd/dist/antd.css";
-import "./assets/styles/main.css";
-import "./assets/styles/responsive.css";
+
 import Cobradores from "./pages/Cobradores";
 import create from "./pages/cobradores/create"
-import IndexRutas from "./pages/rutas/index";
+import IndexRutas from "./pages/rutas/Rutas";
+import Sedes from './pages/sedes/Sedes'
+import PrestamosPorRuta from "./pages/prestamos/PrestamosPorRuta";
 
 function App() {
   return (
@@ -37,7 +42,9 @@ function App() {
           <Route exact path="/billing" component={Billing} />
           <Route exact path="/rtl" component={Cobradores} />
           <Route exact path="/cobradores/crear" component={create} />
-          <Route exact path="/rutas" component={IndexRutas} />
+          <Route exact path="/rutas/:id" component={IndexRutas} />
+          <Route path="/rutas/:id/prestamos" component={PrestamosPorRuta} />
+          <Route exact path="/sedes" component={Sedes} />
           <Route exact path="/profile" component={Profile} />
           <Redirect from="*" to="/dashboard" />
         </Main>

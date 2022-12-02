@@ -220,7 +220,7 @@ function Sidenav({ color }) {
           </NavLink>
       </SubMenu>
         <Menu.Item key="1">
-          <NavLink to="/cobradores/crear">
+          <NavLink to="/sedes">
             <span
               className="icon"
               style={{
@@ -229,21 +229,7 @@ function Sidenav({ color }) {
             >
               {dashboard}
             </span>
-            <span className="label">s</span>
-          </NavLink>
-        </Menu.Item>
-
-        <Menu.Item key="45">
-          <NavLink to="/rutas">
-            <span
-              className="icon"
-              style={{
-                background:  "",
-              }}
-            >
-              {dashboard}
-            </span>
-            <span className="label">Rutas</span>
+            <span className="label">Sedes</span>
           </NavLink>
         </Menu.Item>
         
