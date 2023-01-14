@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import uri from '../../static/environment'
+import uri from '../../static/environment.js'
 import { Link } from 'react-router-dom'
 
 
@@ -74,12 +74,12 @@ const Index = (props) => {
     const Options = (id) => {
       return (
         <Space>
-          <Link to={"/rutas/"+id+"/prestamos"}>
-            <Button type="cyan" size="small"> Prestamos </Button>
+          <Link to={"/rutas/"+id+"/detalle"}>
+            <Button type="cyan" size="small"> Detalle </Button>
           </Link>
 
           <Link to={"/rutas/"+id+"/prestamos"}>
-            <Button type="dark" size="small"> Cobros </Button>
+            <Button type="dark" size="small"> Prestamos </Button>
           </Link>
         </Space>
       )

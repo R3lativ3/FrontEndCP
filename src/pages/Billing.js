@@ -8,8 +8,10 @@ import {
   Badge,
   Space,
   Avatar,
+  Statistic
 } from "antd";
-import {  EditOutlined, EllipsisOutlined, SettingOutlined  } from '@ant-design/icons';
+
+import {  EditOutlined, EllipsisOutlined, LikeOutlined, EyeOutlined  } from '@ant-design/icons';
 
 
 import { PlusOutlined, ExclamationOutlined } from "@ant-design/icons";
@@ -464,6 +466,11 @@ function Billing() {
             bordered={false}
             title={[<h6 className="font-semibold m-0">Cobro Semanal</h6>]}
             bodyStyle={{ paddingTop: "0" }}
+            extra={[
+              <Button type="link">
+                <span>Ver Todos</span>
+              </Button>,
+            ]}
           >
             <Row>
               {information.map((i, index) => (
@@ -475,16 +482,21 @@ function Billing() {
                       margin: '.5rem'
                     }}
                     actions={[
-                      <SettingOutlined key="setting" />,
                       <EditOutlined key="edit" />,
-                      <EllipsisOutlined key="ellipsis" />,
+                      <EyeOutlined key="ellipsis" />,
                     ]}
                     >
-                        <Space direction="vertical">
-                          <Badge status="success" text="Success" />
-                          <Badge status="error" text="Error" />
-                          <Badge status="default" text="Default" />
-                        </Space>
+                     <Row justify="center" align="top" gutter={16} style={{paddingTop:'1.4rem'}}>
+                        <Col span={7}>
+                          <Statistic title="Cobrado" value={1128} style={{textAlign:'center'}}  valueStyle={{fontSize:'20px'}} />
+                        </Col>
+                        <Col span={7}>
+                          <Statistic title="Creditos" value={93} style={{textAlign:'center'}} valueStyle={{fontSize:'20px'}}/>
+                        </Col>
+                        <Col span={7}>
+                          <Statistic title="Pagaron" value={93} suffix="/100" style={{textAlign:'center'}}  valueStyle={{fontSize:'20px'}}/>
+                        </Col>
+                      </Row>
                     </Card>
                 </Badge.Ribbon>
                 </Col>
@@ -559,7 +571,7 @@ function Billing() {
             className="header-solid h-full ant-invoice-card"
             title={[<h6 className="font-semibold m-0">Invoices</h6>]}
             extra={[
-              <Button type="primary">
+              <Button>
                 <span>VIEW ALL</span>
               </Button>,
             ]}

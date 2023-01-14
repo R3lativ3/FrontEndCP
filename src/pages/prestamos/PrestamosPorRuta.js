@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Card, Table, Button, Space } from "antd";
 import { useParams } from "react-router-dom";
-import uri from '../../static/environment'
+import uri from '../../static/environment.js'
 import { Link } from 'react-router-dom'
 
 function PrestamosPorRuta() {
@@ -67,8 +67,8 @@ function PrestamosPorRuta() {
           <Button type="cyan" size="small"> Editar </Button>
         </Link>
 
-        <Link to={"/rutas/"+id+"/prestamos"}>
-          <Button type="dark" size="small"> Ver </Button>
+        <Link to={"/rutas/"+id+"/cobros/"+(new Date().toLocaleDateString())}>
+          <Button type="dark" size="small"> Detalle </Button>
         </Link>
       </Space>
     )

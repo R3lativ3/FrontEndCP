@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import './Sedes.css'
 import { Link } from 'react-router-dom'
-import uri from '../../static/environment'
+import uri from '../../static/environment.js'
 
 function Index() {
     const[sedes, setSedes] = useState([])

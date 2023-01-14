@@ -18,7 +18,6 @@ import { Switch, Route, Redirect } from "react-router-dom";
 import Home from "./pages/Home";
 import Tables from "./pages/Tables";
 import Billing from "./pages/Billing";
-import Rtl from "./pages/Rtl";
 import Profile from "./pages/Profile";
 import SignUp from "./pages/SignUp";
 import SignIn from "./pages/SignIn";
@@ -27,8 +26,11 @@ import Main from "./components/layout/Main";
 import Cobradores from "./pages/Cobradores";
 import create from "./pages/cobradores/create"
 import IndexRutas from "./pages/rutas/Rutas";
+import IndexCobros from './pages/cobros/Cobros'
 import Sedes from './pages/sedes/Sedes'
 import PrestamosPorRuta from "./pages/prestamos/PrestamosPorRuta";
+import DetalleRuta from "./pages/rutas/DetalleRuta/DetalleRuta";
+import Clientes from "./pages/clientes/Clientes";
 
 function App() {
   return (
@@ -37,13 +39,16 @@ function App() {
         <Route path="/sign-up" exact component={SignUp} />
         <Route path="/sign-in" exact component={SignIn} />
         <Main>
+          <Route exact path="/rutas/:id/detalle" component={DetalleRuta} /> 
+          <Route exact path="/rutas/:id/prestamos" component={PrestamosPorRuta} /> 
+          <Route exact path="/rutas/:id/cobros/:fecha" component={IndexCobros} />
           <Route exact path="/dashboard" component={Home} />
           <Route exact path="/tables" component={Tables} />
           <Route exact path="/billing" component={Billing} />
           <Route exact path="/rtl" component={Cobradores} />
           <Route exact path="/cobradores/crear" component={create} />
+          <Route exact path="/clientes" component={Clientes} />
           <Route exact path="/rutas/:id" component={IndexRutas} />
-          <Route path="/rutas/:id/prestamos" component={PrestamosPorRuta} />
           <Route exact path="/sedes" component={Sedes} />
           <Route exact path="/profile" component={Profile} />
           <Redirect from="*" to="/dashboard" />
