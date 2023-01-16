@@ -31,6 +31,7 @@ import Sedes from './pages/sedes/Sedes'
 import PrestamosPorRuta from "./pages/prestamos/PrestamosPorRuta";
 import DetalleRuta from "./pages/rutas/DetalleRuta/DetalleRuta";
 import Clientes from "./pages/clientes/Clientes";
+import AgregarCliente from "./pages/clientes/AgregarCliente";
 
 function App() {
   return (
@@ -47,6 +48,7 @@ function App() {
           <Route exact path="/billing" component={Billing} />
           <Route exact path="/rtl" component={Cobradores} />
           <Route exact path="/cobradores/crear" component={create} />
+          <Route exact path="/clientes/crear" component={AgregarCliente} />
           <Route exact path="/clientes" component={Clientes} />
           <Route exact path="/rutas/:id" component={IndexRutas} />
           <Route exact path="/sedes" component={Sedes} />
