@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react'
-import axios from 'axios'
-import './Sedes.css'
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import axios from 'axios'
 import uri from '../../static/environment.js'
+import './Sedes.css'
 
 function Index() {
     const[sedes, setSedes] = useState([])
@@ -10,10 +10,7 @@ function Index() {
     useEffect(() => {
         const getData = async () => {
             try{
-                const response = await axios({
-                    url: `${uri.uri}/sedes`
-                })
-                console.log(response)
+                const response = await axios({ url: `${uri}/sedes`})
                 setSedes(response.data)
             }
             catch(err){
@@ -23,30 +20,25 @@ function Index() {
         getData()
     }, [])
 
-    const RenderSedes = () => {
-        return (
+    return (
+    <div className='container'>
+        <div style={{ flexDirection: 'row' }}>
+        {
             sedes.length > 0 ?
-                sedes.map( x => 
-                    <Link to={"/rutas/"+x.id}>
-                        <div style={{ width: '18rem' }}>
+                <div className='row'>
+                    {sedes.map( x => 
+                        <Link className='col-md-6' to={"/rutas/"+x.id} style={{ textDecoration: 'none' }}>
                             <div className="feature-box-1">
                                 <div className="feature-content">
                                     <h2>{ x.sede }</h2>
                                     <p>{ x.departamento }</p>
                                 </div>
                             </div>
-                        </div>
-                    </Link>
-
-                )
+                        </Link>
+                    )}
+                </div> 
             : <div>No data</div>
-        )
-    }
-
-    return (
-    <div className='container'>
-        <div style={{ flexDirection: 'row' }}>
-            {RenderSedes()}
+        }
         </div>
     </div>
     ) 

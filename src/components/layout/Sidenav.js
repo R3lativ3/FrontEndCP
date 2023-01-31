@@ -1,10 +1,7 @@
 
-import { Menu, Dropdown } from "antd";
+import { Menu } from "antd";
 import { NavLink, useLocation } from "react-router-dom";
-import logo from "../../assets/images/logo.png";
-import { DownOutlined } from '@ant-design/icons';
-import { AppstoreOutlined, MailOutlined, SettingOutlined } from '@ant-design/icons';
-
+import logo from "../../assets/images/logo.png"
 function Sidenav({ color }) {
   const { pathname } = useLocation();
   const page = pathname.replace("/", "");
@@ -133,6 +130,14 @@ function Sidenav({ color }) {
               <img src="https://e7.pngegg.com/pngimages/545/392/png-clipart-group-icon-art-customer-computer-icons-e-commerce-vendor-files-customers-free-miscellaneous-microphone-thumbnail.png" style={{color:'white'}} />
             </span>
             <span className="label">Clientes</span>
+          </NavLink>
+        </Menu.Item>
+
+        <Menu.Item key="5" >
+          <NavLink to="/prestamos" >
+          <span className="icon" style={{ background: page === "clientes" ? color : "white" }}>  
+          </span>
+          <span className="label">Prestamos</span>
           </NavLink>
         </Menu.Item>
         {/* <Menu.Item key="4" >
